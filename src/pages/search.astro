@@ -16,30 +16,30 @@ const { items: results } = query
 ---
 
 <Base
-	title={query ? `Search: ${query}` : "Search"}
-	description="Search blog posts"
+	title={query ? `検索結果: ${query}` : "検索"}
+	description="記事を検索します"
 >
 	<section class="search-page">
-		<h1 class="search-title">Search</h1>
+		<h1 class="search-title">検索</h1>
 
 		<form method="get" action="/search" class="search-form">
 			<input
 				type="search"
 				name="q"
 				value={query}
-				placeholder="Search posts..."
+				placeholder="キーワードを入力..."
 				class="search-input"
 				autofocus
 			/>
-			<button type="submit" class="search-button">Search</button>
+			<button type="submit" class="search-button">検索</button>
 		</form>
 
 		{
 			query && (
 				<p class="search-summary">
 					{results.length === 0
-						? `No results for "${query}"`
-						: `${results.length} result${results.length === 1 ? "" : "s"} for "${query}"`}
+						? `"${query}" に一致する結果はありませんでした`
+						: `"${query}" の検索結果: ${results.length} 件`}
 				</p>
 			)
 		}
@@ -66,7 +66,7 @@ const { items: results } = query
 			)
 		}
 
-		{!query && <p class="search-hint">Enter a search term to find posts.</p>}
+		{!query && <p class="search-hint">キーワードを入力して記事を検索してください。</p>}
 	</section>
 </Base>
 

@@ -27,9 +27,9 @@ export default defineConfig({
 	fonts: [
 		{
 			provider: fontProviders.google(),
-			name: "Inter",
+			name: "Noto Sans JP",
 			cssVariable: "--font-sans",
-			weights: [400, 500, 600, 700],
+			weights: [400, 500, 700],
 			fallbacks: ["sans-serif"],
 		},
 		{

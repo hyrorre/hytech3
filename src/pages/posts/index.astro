@@ -27,26 +27,25 @@ const postsWithTags = posts.map((post) => ({
 }));
 
 const formatDate = (date: Date) =>
-	date.toLocaleDateString("en-US", {
+	date.toLocaleDateString("ja-JP", {
 		year: "numeric",
 		month: "long",
 		day: "numeric",
 	});
 ---
 
-<Base title="All Posts" description="Browse all blog posts">
+<Base title="すべての記事" description="ブログのすべての記事を表示します">
 	<div class="posts-page">
 		<header class="page-header">
-			<h1 class="page-title">All Posts</h1>
+			<h1 class="page-title">すべての記事</h1>
 			<p class="page-description">
-				{posts.length}
-				{posts.length === 1 ? "article" : "articles"}
+				全 {posts.length} 件の記事
 			</p>
 		</header>
 
 		{
 			posts.length === 0 ? (
-				<p class="empty">No posts yet.</p>
+				<p class="empty">記事がまだありません。</p>
 			) : (
 				<div class="posts-list">
 					{postsWithTags.map(({ post, tags, bylines }) => (
@@ -84,7 +83,7 @@ const formatDate = (date: Date) =>
 										<time>{formatDate(post.data.publishedAt)}</time>
 									)}
 									{post.data.publishedAt && <span class="meta-dot" />}
-									<span>{getReadingTime(post.data.content)} min read</span>
+									<span>{getReadingTime(post.data.content)} 分</span>
 								</div>
 								<h2 class="post-title">{post.data.title}</h2>
 								{post.data.excerpt && (
