@@ -19,6 +19,7 @@ import Base from "../../layouts/Base.astro";
 import PostCard from "../../components/PostCard.astro";
 import { getReadingTime } from "../../utils/reading-time";
 import { resolveBlogSiteIdentity } from "../../utils/site-identity";
+import { formatDate } from "../../utils/date";
 
 const slug = decodeSlug(Astro.params.slug);
 
@@ -99,12 +100,7 @@ const otherPostsWithTags = otherPosts.map((p) => ({
 	bylines: p.data.bylines ?? [],
 }));
 
-const publishDate =
-	post.data.publishedAt?.toLocaleDateString("ja-JP", {
-		year: "numeric",
-		month: "long",
-		day: "numeric",
-	}) ?? null;
+const publishDate = formatDate(post.data.publishedAt);
 ---
 
 <Base
