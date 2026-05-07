@@ -26,6 +26,7 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
     "@cloudflare/workers-types": "^4.20260507.1",
+    "prettier": "3.8.3",
     "wrangler": "^4.89.1"
   },
   "pnpm": {
